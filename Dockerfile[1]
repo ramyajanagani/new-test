@@ -1,0 +1,8 @@
+FROM nginx:latest
+
+LABEL Author="Ramya krishna"
+
+RUN wget -O abs-guide.tgz https://tldp.org/LDP/abs/abs-guide.html.tar.gz \
+    && rm -f /usr/share/nginx/html/* \
+    && tar -xzf abs-guide.tgz --strip-components 1 -C /usr/share/nginx/html/ \
+    && rm -f abs-guide.tgz
